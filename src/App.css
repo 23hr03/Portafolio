@@ -26,6 +26,9 @@ a{color:inherit;text-decoration:none}
 
 .page{min-height:100vh}
 
+/* ======================
+   HEADER / NAV
+====================== */
 .header{
   position:sticky; top:0; z-index:10;
   backdrop-filter: blur(12px);
@@ -50,9 +53,12 @@ a{color:inherit;text-decoration:none}
   background: rgba(255,255,255,.06);
 }
 
-.hero{padding:60px 0 26px}
+/* ======================
+   HERO
+====================== */
+.hero{padding:72px 0 36px}
 .heroInner{
-  display:grid; gap:22px;
+  display:grid; gap:28px;
   grid-template-columns: 1.35fr .65fr;
   align-items:stretch;
 }
@@ -70,7 +76,7 @@ a{color:inherit;text-decoration:none}
   font-weight:700;
   width:fit-content;
 }
-h1{margin:14px 0 10px; font-size:42px; line-height:1.05}
+h1{margin:16px 0 14px; font-size:42px; line-height:1.05}
 @media (max-width: 520px){ h1{font-size:34px} }
 
 .soft{
@@ -80,68 +86,103 @@ h1{margin:14px 0 10px; font-size:42px; line-height:1.05}
   color:transparent;
 }
 
-.lead{color:var(--muted); font-size:16px; line-height:1.6; max-width:56ch}
+.lead{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.75;
+  max-width:58ch;
+  margin: 0;
+}
 
-.ctaRow{display:flex; gap:12px; margin-top:16px; flex-wrap:wrap}
+.ctaRow{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
 
 .heroCard{
-  display:grid; gap:12px;
+  display:grid; gap:14px;
 }
 .miniCard{
   border:1px solid var(--border);
   background: rgba(255,255,255,.06);
   border-radius: var(--radius);
-  padding:16px;
+  padding:18px;
   box-shadow: var(--shadow);
 }
-.kpi{font-weight:900; font-size:18px; display:block; margin-bottom:4px}
+.kpi{font-weight:900; font-size:18px; display:block; margin-bottom:6px}
 .muted{color:var(--muted)}
 
-.section{padding:42px 0}
+/* ======================
+   SECTIONS (MÁS AIRE)
+====================== */
+.section{
+  padding: 80px 0;     /* antes 42px */
+}
 .section.alt{
+  padding: 90px 0;     /* extra aire en alternas */
   background: rgba(255,255,255,.03);
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
 }
-.sectionHead h2{margin:0 0 6px; font-size:28px}
-.sectionHead p{margin:0; color:var(--muted)}
 
+.sectionHead{
+  margin-bottom: 40px; /* separa título del contenido */
+}
+.sectionHead h2{
+  margin: 0 0 14px;
+  font-size:28px;
+}
+.sectionHead p{
+  margin:0;
+  color:var(--muted);
+  line-height: 1.75;
+}
+
+/* ======================
+   FILTERS / GRID
+====================== */
 .filters{
-  display:flex; gap:10px; flex-wrap:wrap;
-  margin:16px 0 18px;
+  display:flex; gap:12px; flex-wrap:wrap;
+  margin: 10px 0 26px;
 }
 
 .grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
-  gap:16px;
+  gap: 22px; /* más separación */
 }
 @media (max-width: 980px){ .grid{grid-template-columns:repeat(2,1fr)} }
 @media (max-width: 620px){ .grid{grid-template-columns:1fr} }
 
+/* ======================
+   CARDS (MÁS PADDING)
+====================== */
 .card{
   border:1px solid var(--border);
   background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  padding: 28px; /* 🔥 clave: aire interno */
 }
 
-.project{overflow:hidden}
+/* Project cards ya tenían estructura interna */
+.project{overflow:hidden; padding:0} /* no romper el layout */
 .thumb{
-  height:140px;
+  height:160px;
   background-size:cover;
   background-position:center;
   filter: saturate(1.1) contrast(1.05);
 }
-.projectBody{padding:14px}
+.projectBody{padding:18px}
 .projectTop{
   display:flex; align-items:center; justify-content:space-between; gap:10px;
+  margin-bottom: 10px;
 }
 .projectTop h3{margin:0; font-size:16px}
-.tags{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 12px}
+.tags{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 16px}
 
 .actions{display:flex; gap:10px; flex-wrap:wrap}
 
+/* ======================
+   BUTTONS / CHIPS
+====================== */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -186,37 +227,74 @@ h1{margin:14px 0 10px; font-size:42px; line-height:1.05}
 }
 .pill.small{padding:6px 10px; font-size:12px}
 
-.skills{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+/* ======================
+   SKILLS (MÁS ESPACIO)
+====================== */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 14px;        /* antes 10 */
+  margin-top: 24px; /* antes 14 */
+}
 
+/* ======================
+   ABOUT (MÁS GAP)
+====================== */
 .about{
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap:16px;
-  margin-top:16px;
+  gap: 32px;          /* antes 16 */
+  margin-top: 16px;
 }
 @media (max-width: 900px){ .about{grid-template-columns:1fr} }
 
-.list{margin:10px 0 0; padding-left:18px; color: var(--muted); line-height:1.7}
+/* Lista más aireada */
+.list{
+  margin-top: 18px;   /* antes 10 */
+  padding-left: 22px; /* antes 18 */
+  color: var(--muted);
+  line-height: 1.9;
+}
 
+/* ======================
+   CONTACT (MÁS GAP)
+====================== */
 .contact{
   display:grid;
   grid-template-columns: .9fr 1.1fr;
-  gap:16px;
-  margin-top:16px;
+  gap: 36px; /* antes 16 */
+  margin-top: 16px;
 }
 @media (max-width: 900px){ .contact{grid-template-columns:1fr} }
 
-.links{display:flex; flex-direction:column; gap:10px; padding:14px}
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding: 22px; /* antes 14 */
+}
 .links a{
-  padding:12px 12px;
+  padding:14px 14px;
   border-radius: 14px;
   border:1px solid var(--border);
   background: rgba(255,255,255,.06);
 }
 .links a:hover{background: rgba(255,255,255,.10)}
 
-.form{padding:14px; display:flex; flex-direction:column; gap:10px}
-label{display:flex; flex-direction:column; gap:6px; color: var(--muted); font-weight:700}
+/* Form */
+.form{
+  padding: 22px; /* antes 14 */
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+label{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  color: var(--muted);
+  font-weight:700;
+}
 input, textarea{
   background: rgba(0,0,0,.18);
   border:1px solid var(--border);
@@ -228,11 +306,21 @@ input, textarea{
 input:focus, textarea:focus{border-color: rgba(255,255,255,.22)}
 .ok{color: rgba(170,255,210,.9); font-weight:800; margin:0}
 
+/* ======================
+   FOOTER (NO PEGADO)
+====================== */
 .footer{
   border-top:1px solid var(--border);
-  padding:20px 0;
+  padding: 36px 0;     /* antes 20 */
+  margin-top: 60px;    /* extra separación */
   background: rgba(11,16,32,.55);
   backdrop-filter: blur(12px);
 }
-.footerInner{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap}
+.footerInner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
 .footerLinks{display:flex; gap:12px}
