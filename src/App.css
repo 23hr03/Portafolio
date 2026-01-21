@@ -441,3 +441,101 @@ input:focus, textarea:focus{border-color: rgba(255,255,255,.22)}
   flex-wrap:wrap;
 }
 .footerLinks{display:flex; gap:12px}
+/* ======================
+   RESPONSIVE (TABLET + MOBILE)
+   Pegar al FINAL del App.css
+====================== */
+
+/* ====== TABLET (<= 1024px) ====== */
+@media (max-width: 1024px){
+  /* Projects grid */
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Certificados */
+  .certGrid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Espaciado general un poco menor */
+  .section{ padding: 64px 0; }
+  .section.alt{ padding: 72px 0; }
+
+  /* Tipografías */
+  h1{ font-size: 38px; }
+}
+
+/* ====== TABLET/SMALL (<= 900px) ====== */
+@media (max-width: 900px){
+  /* Hero pasa a 1 columna */
+  .heroInner{
+    grid-template-columns: 1fr;
+  }
+
+  /* About pasa a 1 columna */
+  .about{
+    grid-template-columns: 1fr;
+  }
+
+  /* Experiencia/Estudios a 1 columna */
+  .timelineGrid{
+    grid-template-columns: 1fr;
+  }
+
+  /* Contacto a 1 columna */
+  .contact{
+    grid-template-columns: 1fr;
+  }
+
+  /* Separación nav */
+  .nav{ gap: 10px; }
+}
+
+/* ====== MOBILE (<= 640px) ====== */
+@media (max-width: 640px){
+  /* Contenedor */
+  .wrap{ padding: 0 14px; }
+
+  /* Secciones más compactas */
+  .section{ padding: 52px 0; }
+  .section.alt{ padding: 58px 0; }
+  .sectionHead{ margin-bottom: 28px; }
+
+  /* Tipos */
+  h1{ font-size: 32px; line-height: 1.12; }
+  .lead{ font-size: 15px; }
+
+  /* Navbar: evitar apretado */
+  .headerInner{
+    height: auto;
+    padding: 12px 0;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nav{
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .nav a{ font-size: 13px; }
+
+  /* Grids en 1 columna */
+  .grid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .certGrid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Cards */
+  .card{ padding: 20px; }
+  .projectBody{ padding: 16px; }
+  .certCard{ padding: 22px; min-height: auto; }
+
+  /* Botones */
+  .btn{ padding: 11px 12px; }
+  .btn.small{ padding: 9px 10px; font-size: 12px; }
+}

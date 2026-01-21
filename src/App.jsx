@@ -122,7 +122,7 @@ const certificates = [
   {
     title: "Full stack Python ",
     org: "Codo a Codo",
-    year: "2023",
+    year: "2024",
     desc: "HTML, CSS, Python, JavaScript, Veu.js .",
     link: "/certificados/Landaeta Hector, Dni 96157495.pdf",
   },
@@ -194,16 +194,16 @@ return (
 
       <div className="about">
         <div className="card">
-          <h3>Hola, soy Héctor 👋</h3>
+          <h3>Hola, soy Héctor Landaeta 👋</h3>
           <p>
-            Desarrollo apps web y mobile. Me enfoco en crear sistemas reales
+            Desarrollador de software, apps web y mobile. Me enfoco en crear sistemas reales
             (stock, facturación, turnos, etc.) con buenas prácticas y una UI prolija.
           </p>
           <ul className="list">
             <li>✅ Frontend: React / Vue</li>
-            <li>✅ Backend: Node / PHP / Python</li>
+            <li>✅ Backend: Node.js / PHP / Python</li>
             <li>✅ BD: SQL / MongoDB</li>
-            <li>✅ Deploy: Render / básico AWS</li>
+            <li>✅ Deploy: Render / Netlify / básico AWS</li>
           </ul>
         </div>
 
