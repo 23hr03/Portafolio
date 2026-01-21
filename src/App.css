@@ -298,6 +298,82 @@ h1{margin:16px 0 14px; font-size:42px; line-height:1.05}
 }
 
 /* ======================
+   CERTIFICADOS – GRID
+====================== */
+
+.certGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 en desktop */
+  gap: 28px;
+  margin-top: 24px;
+}
+
+/* Tablet */
+@media (max-width: 1024px){
+  .certGrid{
+    grid-template-columns: repeat(2, 1fr); /* 2 en tablet */
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  .certGrid{
+    grid-template-columns: 1fr; /* 1 en mobile */
+  }
+}
+
+/* Card certificado */
+.certCard{
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+}
+
+/* Título */
+.certTitle{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+/* UTN · 2024 */
+.certMeta{
+  margin: 12px 0 14px;
+  font-size: 14px;
+}
+
+/* Descripción */
+.certDesc{
+  line-height: 1.8;
+  flex-grow: 1;
+}
+
+/* Botón abajo alineado */
+.certCard .btn{
+  align-self: flex-start;
+}
+.certMain{
+  border: 1px solid rgba(255,255,255,.35);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.16),
+    rgba(255,255,255,.06)
+  );
+  box-shadow: 0 30px 90px rgba(0,0,0,.55);
+}
+.certCard{
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.certCard:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 30px 90px rgba(0,0,0,.6);
+}
+
+
+/* ======================
    CONTACT (MÁS GAP)
 ====================== */
 .contact{

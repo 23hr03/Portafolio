@@ -82,6 +82,54 @@ time: "2025",
 detail: "Login/Registro, SharedPreferences, RecyclerView y Room.",
 },
 ];
+const certificates = [
+  {
+    title: "AWS Cloud Practitioner (Cloud Foundations)",
+    org: "Amazon Web Services",
+    year: "2025",
+    desc: "Fundamentos de la nube, servicios principales, seguridad y costos.",
+    link: "https://www.credly.com/badges/e0696b46-b7e0-4a10-b36f-f609b20e4a64/public_url",
+  },
+  {
+    title: "AWS Cloud Practitioner (Cloud Operations )",
+    org: "Amazon Web Services",
+    year: "2025",
+    desc: "Fundamentos de la nube, servicios principales, seguridad y costos.",
+    link: "https://www.credly.com/badges/d9bb22cf-f000-4dfa-822b-30f974539329/public_url",
+  },
+  {
+    title: "Desarrollo Web Full Stack",
+    org: "UTN",
+    year: "2025",
+    desc: "Formación integral en desarrollo web: frontend, backend y bases de datos. Proyecto final integrador.",
+    link: "/certificados/Diplomatura_de_Programaci_n_Web_Full_Stack_-_Turno_Tarde.pdf",
+    highlight: true,
+  },
+  {
+    title: "Diplomatura  Desarrollo Frontend",
+    org: "UTN",
+    year: "2025",
+    desc: "HTML, CSS, JavaScript, React y diseño de interfaces responsive.",
+    link: "/certificados/Curso_de_Programador_Web_Inicial_-_Front_End_Developer_-_Turno_Tarde-1.pdf",
+  },
+  {
+    title: "Diplomatura  Desarrollo Backend",
+    org: "UTN",
+    year: "2025",
+    desc: "Lógica de negocio, APIs, bases de datos y backend con PHP / Node.",
+    link: "/certificados/Curso_de_Backend_Developer_-_Turno_Tarde.pdf",
+  },
+  {
+    title: "Full stack Python ",
+    org: "Codo a Codo",
+    year: "2023",
+    desc: "HTML, CSS, Python, JavaScript, Veu.js .",
+    link: "/certificados/Landaeta Hector, Dni 96157495.pdf",
+  },
+  
+];
+
+
 
 export default function App() {
 const [filter, setFilter] = useState("Todos");
@@ -226,6 +274,41 @@ return (
         ))}
       </div>
     </section>
+
+    <section id="certificates" className="section">
+  <div className="sectionHead">
+    <h2>Certificados</h2>
+    <p>Cursos y certificaciones que respaldan mis conocimientos.</p>
+  </div>
+
+  <div className="certGrid">
+    {certificates.map((c) => (
+      <div className="card certCard" key={c.title}>
+        <h3 className="certTitle">{c.title}</h3>
+
+        <p className="muted certMeta">
+          {c.org} • {c.year}
+        </p>
+
+        <p className="muted certDesc">
+          {c.desc}
+        </p>
+
+        {c.link && (
+          <a
+            href={c.link}
+            target="_blank"
+            rel="noreferrer"
+            className="btn small ghost"
+            style={{ marginTop: 14 }}
+          >
+            Ver certificado
+          </a>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
 
     <section id="contact" className="section alt">
       <div className="sectionHead">
