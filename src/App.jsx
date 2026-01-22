@@ -352,6 +352,7 @@ return (
       <a href="#about">Sobre mí</a>
       <a href="#experience">Experiencia</a>
       <a href="#education">Estudios</a>
+      <a href="#certificates">Certificados</a>
       <a className="navBtn" href="#contact">Contacto</a>
       
     </nav>
@@ -428,14 +429,48 @@ return (
 );
 }
 
-function ContactForm() {
-// Form simple (sin backend). Podés integrarlo con Formspree o tu API después.
-const [status, setStatus] = useState("idle");
 
-const onSubmit = (e) => {
+
+function ContactForm() {
+const [status, setStatus] = useState("idle"); // idle | sending | sent
+const [error, setError] = useState("");
+
+const onSubmit = async (e) => {
 e.preventDefault();
+setError("");
+setStatus("sending");
+
+const form = e.target;
+
+const data = {
+name: form.name.value,
+email: form.email.value,
+message: form.message.value,
+};
+
+try {
+const res = await fetch("http://localhost:3001/api/contact", {
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+},
+body: JSON.stringify(data),
+});
+
+const result = await res.json();
+
+if (!res.ok) {
+setStatus("idle");
+setError(result.message || "Error al enviar el mensaje");
+return;
+}
+
 setStatus("sent");
-e.target.reset();
+form.reset();
+} catch (err) {
+setStatus("idle");
+setError("No se pudo conectar con el servidor");
+}
 };
 
 return (
@@ -444,29 +479,41 @@ return (
 
   <label>
     Nombre
-    <input required placeholder="Tu nombre" />
+    <input name="name" required placeholder="Tu nombre" disabled={status==="sending" } />
   </label>
 
   <label>
     Email
-    <input required type="email" placeholder="tuemail@gmail.com" />
+    <input name="email" type="email" required placeholder="tuemail@gmail.com" disabled={status==="sending" } />
   </label>
 
   <label>
     Mensaje
-    <textarea required rows={5} placeholder="Contame qué necesitás..." />
+    <textarea name="message" required rows={5} placeholder="Contame qué necesitás..." disabled={status==="sending" } />
     </label>
 
-      <button className="btn" type="submit">
-        Enviar
-      </button>
+  <button className="btn" type="submit" disabled={status === "sending"}>
+    {status === "sending" ? "Enviando..." : "Enviar"}
+  </button>
 
-      {status === "sent" && (
-        <p className="ok">Listo ✅ (esto es demo; si querés, lo conectamos a un backend real)</p>
-      )}
-    </form>
+  {status === "sending" && (
+    <p className="muted">⏳ Enviando mensaje...</p>
+  )}
+
+  {error && (
+    <p style={{ color: "salmon", margin: 0 }}>
+      {error}
+    </p>
+  )}
+
+  {status === "sent" && (
+    <p className="ok">✅ Mensaje enviado correctamente</p>
+  )}
+</form>
+
   );
 }
+
 
 function Footer() {
   return (
