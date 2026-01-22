@@ -310,29 +310,55 @@ return (
   </div>
 </section>
 
-    <section id="contact" className="section alt">
-      <div className="sectionHead">
-        <h2>Contacto</h2>
-        <p>Dejame tus datos o escribime por redes.</p>
+<section id="contact" className="section alt">
+  <div className="sectionHead">
+    <h2>Contacto</h2>
+    <p>Dejame tus datos o escribime por redes.</p>
+  </div>
+
+  <div className="contact">
+    <div className="card">
+      <h3>Links</h3>
+
+      <div className="links">
+        <a
+          href="https://github.com/23hr03"
+          target="_blank"
+          rel="noreferrer"
+        >
+          💻 GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/hector-landaeta-54a17222b/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          🔗 LinkedIn
+        </a>
+
+        <a href="mailto:landaetahectorrenier@gmail.com">
+          ✉️ landaetahectorrenier@gmail.com
+        </a>
+
+        <a
+          href="/cv/Hector-Landaeta-CV.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          📄 Descargar CV (PDF)
+        </a>
       </div>
 
-      <div className="contact">
-        <div className="card">
-          <h3>Links</h3>
-          <div className="links">
-            <a href="https://github.com/23hr03" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/hector-landaeta-54a17222b/" target="_blank"
-              rel="noreferrer">LinkedIn</a>
-            <a href="Hector:landaetahectorrenier@gmail.com">landaetahectorrenier@gmail.com</a>
-          </div>
-          <p className="muted">
-            Tip: también podés agregar tu CV en PDF y linkearlo acá.
-          </p>
-        </div>
+      <p className="muted">
+        CV actualizado en PDF para búsquedas trainee / junior.
+      </p>
+    </div>
 
-        <ContactForm />
-      </div>
-    </section>
+    <ContactForm />
+  </div>
+</section>
+
   </main>
 
   <Footer />
