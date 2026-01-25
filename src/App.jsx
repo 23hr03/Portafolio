@@ -39,9 +39,9 @@ const skills = [
 
 const experience = [
 {
-role: "Desarrollador Web / Proyectos Académicos",
-company: "UTN (Tecnicatura)",
-time: "2024 - 2026",
+role: "Desarrollador Web / Proyectos Curso",
+company: "UTN (Full stack)",
+time: "2025 - 2025",
 points: [
 "Desarrollo de sistemas web con CRUD (stock, facturación, turnos).",
 "Integración de backend + base de datos (SQL / MongoDB).",
