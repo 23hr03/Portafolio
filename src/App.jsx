@@ -475,7 +475,7 @@ message: form.message.value,
 };
 
 try {
-const res = await fetch("https://portafolio-backend-nahj.onrender.com/api/contact", {
+const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`,{
 method: "POST",
 headers: {
 "Content-Type": "application/json",
