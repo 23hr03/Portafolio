@@ -456,89 +456,123 @@ return (
 }
 
 
-
 function ContactForm() {
-const [status, setStatus] = useState("idle"); // idle | sending | sent
-const [error, setError] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | sending | sent
+  const [error, setError] = useState("");
 
-const onSubmit = async (e) => {
-e.preventDefault();
-setError("");
-setStatus("sending");
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setStatus("sending");
 
-const form = e.target;
+    const form = e.target;
 
-const data = {
-name: form.name.value,
-email: form.email.value,
-message: form.message.value,
-};
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+    };
 
-try {
-const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`,{
-method: "POST",
-headers: {
-"Content-Type": "application/json",
-},
-body: JSON.stringify(data),
-});
+    // ⏱️ Timeout para evitar cuelgues (Render free)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s
 
-const result = await res.json();
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+          signal: controller.signal,
+        }
+      );
 
-if (!res.ok) {
-setStatus("idle");
-setError(result.message || "Error al enviar el mensaje");
-return;
-}
+      const result = await res.json();
 
-setStatus("sent");
-form.reset();
-} catch (err) {
-setStatus("idle");
-setError("No se pudo conectar con el servidor");
-}
-};
+      if (!res.ok) {
+        setStatus("idle");
+        setError(result.message || "Error al enviar el mensaje");
+        return;
+      }
 
-return (
-<form className="card form" onSubmit={onSubmit}>
-  <h3>Escribime</h3>
+      setStatus("sent");
+      form.reset();
+    } catch (err) {
+      setStatus("idle");
 
-  <label>
-    Nombre
-    <input name="name" required placeholder="Tu nombre" disabled={status==="sending" } />
-  </label>
+      if (err.name === "AbortError") {
+        setError(
+          "⏱️ El servidor tardó demasiado. Probá de nuevo en unos segundos."
+        );
+      } else {
+        setError("❌ No se pudo conectar con el servidor");
+      }
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  };
 
-  <label>
-    Email
-    <input name="email" type="email" required placeholder="tuemail@gmail.com" disabled={status==="sending" } />
-  </label>
+  return (
+    <form className="card form" onSubmit={onSubmit}>
+      <h3>Escribime</h3>
 
-  <label>
-    Mensaje
-    <textarea name="message" required rows={5} placeholder="Contame qué necesitás..." disabled={status==="sending" } />
-    </label>
+      <label>
+        Nombre
+        <input
+          name="name"
+          required
+          placeholder="Tu nombre"
+          disabled={status === "sending"}
+        />
+      </label>
 
-  <button className="btn" type="submit" disabled={status === "sending"}>
-    {status === "sending" ? "Enviando..." : "Enviar"}
-  </button>
+      <label>
+        Email
+        <input
+          name="email"
+          type="email"
+          required
+          placeholder="tuemail@gmail.com"
+          disabled={status === "sending"}
+        />
+      </label>
 
-  {status === "sending" && (
-    <p className="muted">⏳ Enviando mensaje...</p>
-  )}
+      <label>
+        Mensaje
+        <textarea
+          name="message"
+          required
+          rows={5}
+          placeholder="Contame qué necesitás..."
+          disabled={status === "sending"}
+        />
+      </label>
 
-  {error && (
-    <p style={{ color: "salmon", margin: 0 }}>
-      {error}
-    </p>
-  )}
+      <button className="btn" type="submit" disabled={status === "sending"}>
+        {status === "sending" ? "Enviando..." : "Enviar"}
+      </button>
 
-  {status === "sent" && (
-    <p className="ok">✅ Mensaje enviado correctamente</p>
-  )}
-</form>
+      {status === "sending" && (
+        <p className="muted">⏳ Enviando mensaje...</p>
+      )}
 
+      {error && (
+        <p style={{ color: "salmon", margin: 0 }}>
+          {error}
+        </p>
+      )}
+
+      {status === "sent" && (
+        <p className="ok">✅ Mensaje enviado correctamente</p>
+      )}
+    </form>
   );
 }
+
+
 
 
 function Footer() {
