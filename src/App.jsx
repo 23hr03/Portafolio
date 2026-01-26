@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import "./App.css";
-import {Kobe} from "./img/.png"
+import {Kobe} from "../src/assets/.png"
 
 const projectsData = [
 {
