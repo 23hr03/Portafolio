@@ -14,7 +14,6 @@ image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fi
 },
 {
 title: "Proyecto React - Autenticación con FakeStoreAPI ",
-usuar: "🔑 Para probar el login real en FakeStoreAPI, se deben usar credenciales ya existentes en la API. Por ejemplo: username: mor_2314 password: 83r5^_",
 desc: "Aplicación web en React que permita simular el registro e inicio de sesión de usuarios utilizando la FakeStoreAPI, implementando un flujo básico de autenticación y navegación.",
 tags: ["React", "Css", "FakeStoreAPI","Context API para manejo global de la sesión "],
 category: "Web",
