@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import "./App.css";
+import {Kobe} from "./img/.png"
 
 const projectsData = [
 {
@@ -12,13 +13,14 @@ repo: "https://github.com/23hr03/utnFinal.git",
 image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
 },
 {
-title: "Mi Clínica (Turnos)",
-desc: "Gestión de turnos, especialidades y pacientes.",
-tags: ["PHP", "MySQL", "Bootstrap"],
+title: "Proyecto React - Autenticación con FakeStoreAPI ",
+usuar: "🔑 Para probar el login real en FakeStoreAPI, se deben usar credenciales ya existentes en la API. Por ejemplo: username: mor_2314 password: 83r5^_",
+desc: "Aplicación web en React que permita simular el registro e inicio de sesión de usuarios utilizando la FakeStoreAPI, implementando un flujo básico de autenticación y navegación.",
+tags: ["React", "Css", "FakeStoreAPI","Context API para manejo global de la sesión "],
 category: "Web",
-demo: "https://tu-demo.com",
-repo: "https://github.com/tuusuario/tu-repo",
-image: "https://images.unsplash.com/photo-1580281658628-5a0e2f2b3d0e?auto=format&fit=crop&w=1200&q=80",
+demo: "https://23hr03.github.io/Kobe-s-legacy/",
+repo: "https://github.com/23hr03/Kobe-s-legacy.git",
+image: Kobe,
 },
 {
 title: "App Finanzas (Kotlin)",
