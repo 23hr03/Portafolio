@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import "./App.css";
 import Kobe from "./assets/kobe.png"
+import cv from "./assets/cv/curriculum_Renier.pdf"
 
 const projectsData = [
 {
@@ -211,7 +212,7 @@ return (
         <div className="card">
           <h3>Lo que busco</h3>
           <p>
-            Oportunidades como dev trainee/jr o proyectos freelance.
+            Oportunidades como dev junior o proyectos freelance.
             Me gusta trabajar con objetivos claros y entregas semanales.
           </p>
           <div className="ctaRow">
@@ -224,7 +225,7 @@ return (
     <section id="experience" className="section">
       <div className="sectionHead">
         <h2>Experiencia</h2>
-        <p>Lo que vengo construyendo y practicando para roles trainee/jr.</p>
+        <p>Lo que vengo construyendo y practicando para roles junior.</p>
       </div>
 
       <div className="timelineGrid">
@@ -343,7 +344,7 @@ return (
         </a>
 
         <a
-          href="/cv/Hector-Landaeta-CV.pdf"
+          href="/cv/curriculum_Renier.pdf"
           target="_blank"
           rel="noreferrer"
         >
