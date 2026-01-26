@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import "./App.css";
 import Kobe from "./assets/kobe.png"
-import cv from "./assets/cv/curriculum_Renier.pdf"
 
 const projectsData = [
 {
